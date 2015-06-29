@@ -100,7 +100,7 @@ keyboardmake(keyboardlist,resize,once,selective)
   - **keyboardlist** :
     - Default : *None*
     - Required : *Yes*
-    - keyboardlist is a python List containing at least one other python list that defines the layout of your keyboard, The best way of explaining this is with examples, please see the Keyboard examples section below.
+    - keyboardlist is a python List containing at least one other python list that defines the layout of your keyboard, The best way of explaining this is with examples, please see the Keyboard examples in the example file.
 
   - **resize** :
     - Default : *1*
