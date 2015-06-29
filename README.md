@@ -88,3 +88,35 @@ tb.sendmessage( chatid, text, replyto, replymarkup )
     - Default : *None*
     - Required : *No*
     - replymarkup contains extra things to be sent with your reply. These are detailed on The Telegram Bot API website, The Primary thing you can do with them is create a custom keyboard for the users of your bot (With Buttons). In order to simplify the task of creating keyboards we have created 2 functions, one to create and one to remove a keyboard. They are detailed below.
+
+### Reply Markup Functions
+Telegram's Bot API allows for certain "special markups" on messages, for example markup to display a special keyboard with buttons of your choice. Normally you need to send your keyboard layout in JSON, however to simplify the process we have coded 2 functions that act as variables for the replymarkup variable of sendmessage.
+
+#### Creating a Custom Keyboard
+```python
+keyboardmake(keyboardlist,resize,once,selective=)
+```
+  - **keyboardlist** :
+    - Default : *None*
+    - Required : *Yes*
+    - keyboardlist is a python List containing at least one other python list that defines the layout of your keyboard, The best way of explaining this is with examples, please see the Keyboard examples section below.
+
+  - **resize** :
+    - Default : *1*
+    - Required : *No*
+      - When resize is set to 1, the keyboard will resize to fit the buttons you put on it.
+      - When it is set to 0 it will remain the same size as your normal keyboard.
+
+  - **once** :
+    - Default : *1*
+    - Required : *No*
+     - When once is set to 1, the keyboard will hide itsself after a decision has been made by the user.
+     - When it is set to 0 the keyboard will remain visible after the user has decided.
+
+  - **selective** :
+    - Default : *None*
+    - Required : *No*
+    - Selective allows the keyboard to be displayed only to a select few.
+      - When selective is empty, the keyboard will be displayed to all users in the chat to which the message is sent.
+      - When selective is set to 1 users that are @mentioned in the text of the Message will see the keyboard
+      - When selective is set to 2, only users who are being replied to by the bot will see the keyboard.
