@@ -6,7 +6,7 @@ def authorise(authtoken):
 	tokenurl = 'https://api.telegram.org/bot'+authtoken+'/'
 
 #gets updates from the API and returns them as python readable data
-def getupdates(offset,timeout,debug):
+def getupdates(offset='',timeout=0,debug=0):
 	updateurl=tokenurl+'getUpdates'
 	opts = {'offset': offset, 'timeout': timeout}
 	return(json.loads(requests.get(updateurl, params=opts).text))
@@ -14,6 +14,11 @@ def getupdates(offset,timeout,debug):
 def getme():
 	updateurl=tokenurl+'getMe'
 	return(json.loads(requests.get(updateurl).text))
-#sends messages,optional parameters still need to be added (see API Documentation)
-def sendmessage(chatid,text,):
-	
+#generates keyboards
+def keyboardmake(keyboardlist,resize=1,once=1,selective=''):
+	return("{\"keyboard\":"+json.dumps(keyboardlist).replace('"', '\"')+"}")
+#sends messages
+def sendmessage(chatid,text,replyto='',replymarkup=''):
+	updateurl=tokenurl+'sendMessage'
+	opts = {'chat_id': chatid, 'text': text, 'reply_to_message_id': replyto,'reply_markup':replymarkup}
+	return(json.loads(requests.get(updateurl, params=opts).text))
