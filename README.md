@@ -90,11 +90,12 @@ tb.sendmessage( chatid, text, replyto, replymarkup )
     - replymarkup contains extra things to be sent with your reply. These are detailed on The Telegram Bot API website, The Primary thing you can do with them is create a custom keyboard for the users of your bot (With Buttons). In order to simplify the task of creating keyboards we have created 2 functions, one to create and one to remove a keyboard. They are detailed below.
 
 ### Reply Markup Functions
-Telegram's Bot API allows for certain "special markups" on messages, for example markup to display a special keyboard with buttons of your choice. Normally you need to send your keyboard layout in JSON, however to simplify the process we have coded 2 functions that act as variables for the replymarkup variable of sendmessage.
+Telegram's Bot API allows for certain "special markups" on messages, for example markup to display a special keyboard with buttons of your choice. Normally you need to send your keyboard layout in JSON, however to simplify the process we have coded 2 functions that act as variables for the replymarkup variable of sendmessage. 
+**Please Note that these functions do not work alone, but rather as part of a sendmessage(). Examples of this are in the examples file.**
 
 #### Creating a Custom Keyboard
 ```python
-keyboardmake(keyboardlist,resize,once,selective=)
+keyboardmake(keyboardlist,resize,once,selective)
 ```
   - **keyboardlist** :
     - Default : *None*
@@ -120,3 +121,17 @@ keyboardmake(keyboardlist,resize,once,selective=)
       - When selective is empty, the keyboard will be displayed to all users in the chat to which the message is sent.
       - When selective is set to 1 users that are @mentioned in the text of the Message will see the keyboard
       - When selective is set to 2, only users who are being replied to by the bot will see the keyboard.
+
+#### Removing an existing keyboard
+Keyboards are not "removed" when a button is pressed, they are simply hidden and can be brought back up at the click of a button, to remove a keyboard you must send a message with the keyboarddestroy function as replymarkup. Once again examples can be found in the examples file.
+
+```python
+keyboarddestroy(selective)
+```
+  - **selective** :
+    - Default : *None*
+    - Required : *No*
+    - Selective allows the keyboard to be removed for only for a select few.
+      - When selective is empty, the keyboard will be removed for all users in the chat to which the message is sent.
+      - When selective is set to 1, the keyboard will be removed for users that are @mentioned in the text of the Message.
+      - When selective is set to 2, the keyboard will be removed for users who are being replied to by the bot.
