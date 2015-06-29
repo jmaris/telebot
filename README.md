@@ -47,6 +47,7 @@ This should return something along the lines of :
 
 ####Getting Updates
 When a user interacts with your bot, that interaction is stored on telegrams server, in order to get the interactions and act on them we have to send a specific call to the server, the server returns JSON, but this library converts it into python variables and lists.
+
 **Note : None of the parameters of getupdates are obligatory**
 ```python
 getupdates(*offset*, *timeout*, *debug*)
