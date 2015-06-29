@@ -35,7 +35,7 @@ import telebot as tb
 tb.authorise('your telegram bot token here')
 ```
 - the _tb_ in the above code can be replaced by whatever you wish, What we are doing here is creating a python object that will communicate with telegram's bot API for us. In this documentation the object will be named tb throughout.
-- You will need to replace yourtelegrambottokenhere by your telegram bot token (obviously). In order to learn more about obtaining one, I recommend you check out telegrams Introduction to bots (https://core.telegram.org/bots).
+- You will need to replace yourtelegrambottokenhere by your telegram bot token (obviously). In order to learn more about obtaining one, We recommend you check out telegrams Introduction to bots (https://core.telegram.org/bots).
 
 ####Checking everything's working
 Before starting to code, we recommend you ensure that your token is working as expected, the best way to do this is using the getme function.
@@ -49,7 +49,7 @@ This should return something along the lines of :
 When a user interacts with your bot, that interaction is stored on telegrams server, in order to get the interactions and act on them we have to send a specific call to the server, the server returns JSON, but this library converts it into python variables and lists.
 
 ```python
-tb.getupdates(*offset*, *timeout*, *debug*)
+tb.getupdates( offset, timeout, debug )
 ```
   - **offset** :
     - Default : *None*
@@ -67,7 +67,7 @@ tb.getupdates(*offset*, *timeout*, *debug*)
 #### Sending Messages
 Sending messages is pretty simple.
 ```python
-tb.sendmessage(*chatid*,*text*,*replyto*,*replymarkup*)
+tb.sendmessage( chatid, text, replyto, replymarkup )
 ```
   - **chatid** :
     - Default : *None*
