@@ -3,7 +3,6 @@
 
 **Please not that telebot is currently under heavy development and is not ready for use in production yet.**
 
----
 ## Usage Instructions
 Telebot is a library (module) that facilitates the creation of Telegram bots.
 It is split into two parts : 
@@ -11,4 +10,19 @@ It is split into two parts :
 - A "concurrency" library which allows your bot to interact with different users differently (aka it launches a seperate instance per chat) **Please note that this library does not yet work and has not been developed**
 
 ## Status
-###Communications Library
+#### Communications Library
+| **Telegram Bot API Method** | **_Supported ?_** |
+|:---------------------------:|:-----------------:|
+|            getMe            |        Yes        |
+|         sendMessage         |        Yes        |
+|        forwardMessage       |         No        |
+|          sendPhoto          |         No        |
+|          sendAudio          |         No        |
+|         sendDocument        |         No        |
+|         sendSticker         |         No        |
+|          sendVideo          |         No        |
+|         sendLocation        |         No        |
+|        sendChatAction       |         No        |
+|     getUserProfilePhotos    |         No        |
+|          getUpdates         |        Yes        |
+|          setWebhook         |         No        |
